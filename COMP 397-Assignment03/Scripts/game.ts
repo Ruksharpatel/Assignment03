@@ -3,7 +3,10 @@
 /// <reference path="typings/tweenjs/tweenjs.d.ts" />
 /// <reference path="typings/soundjs/soundjs.d.ts" />
 /// <reference path="typings/preloadjs/preloadjs.d.ts" />
-/// <reference path="typings/stats/stats.d.ts" />
+
+/// <reference path="objects/ship.ts" />
+/// <reference path="objects/fire.ts" />
+/// <reference path="objects/island.ts" />
 
 
 // Game Framework Variables
@@ -14,6 +17,9 @@ var stats: Stats;
 var assets: createjs.LoadQueue;
 var manifest = [
     { id: "ship", src: "assets/images/ship.fw.png" },
+    { id: "island", src: "assets/images/island1.fw.png" },
+    { id: "fire", src: "assets/images/fire.fw.png" }
+
   
 ];
 
@@ -21,8 +27,10 @@ var manifest = [
 // Game Variables
 
 
-//Plane Object
-
+//Ship Object
+var ship: objects.Ship;
+var island: objects.Island;
+var fire:objects.Fire[] = [];
 
 // Preloader Function
 function preload() {
@@ -54,7 +62,7 @@ function setupStats() {
 
     // align bottom-right
     stats.domElement.style.position = 'absolute';
-    stats.domElement.style.left = '330px';
+    stats.domElement.style.left = '650px';
     stats.domElement.style.top = '10px';
 
     document.body.appendChild(stats.domElement);
@@ -64,12 +72,29 @@ function setupStats() {
 // Callback function that creates our Main Game Loop - refreshed 60 fps
 function gameLoop() {
     stats.begin(); // Begin measuring
-
+    ship.update();
+    island.update();
+   for (var fires = 0; fires < 5; fires++) {
+        fire[fires].update();
+    }
     stage.update();
 
     stats.end(); // end measuring
 }
 function main() {
+    //add island object to stage
+    island = new objects.Island(assets.getResult("island"));
+    stage.addChild(island);
+
+    //add ship object to stage
+    ship = new objects.Ship(assets.getResult("ship"));
+    stage.addChild(ship);
+
+    //add fire object to stage
+    for (var fires = 0; fires < 5; fires++) {
+        fire[fires] = new objects.Fire(assets.getResult("fire"));
+        stage.addChild(fire[fires]);
+    }   
 }
 
 
