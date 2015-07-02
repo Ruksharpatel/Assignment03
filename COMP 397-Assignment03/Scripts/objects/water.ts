@@ -28,7 +28,7 @@
 
         private reset(): void {
             this.y = 0;
-            this.x = -390; // reset water to off screen
+            this.x = -790; // reset water to off screen
 
         }
         //PUBLIC METHODS+++++++++++++++++++++++++++++++++++++++++++++++++

@@ -59,10 +59,22 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\images\blue.fw.png" />
     <Content Include="assets\images\fish.fw.png" />
     <Content Include="assets\images\goldcoins.fw.png" />
+    <Content Include="assets\images\roll.fw.png" />
     <Content Include="assets\images\starfish.png" />
+    <Content Include="assets\images\under.fw.png" />
+    <Content Include="assets\images\underwater.fw.png" />
+    <Content Include="assets\images\water.fw.png" />
+    <Content Include="assets\images\water.gif" />
+    <Content Include="assets\images\water.png" />
     <Content Include="assets\images\water1.fw.png" />
+    <Content Include="assets\images\water1.png" />
+    <Content Include="assets\images\waterbg.fw.png" />
+    <Content Include="assets\sounds\burp.wav" />
+    <Content Include="assets\sounds\coin.wav" />
+    <Content Include="assets\sounds\ouch.mp3" />
     <Content Include="packages.config" />
     <Content Include="assets\sounds\river.ogg" />
     <None Include="Web.Debug.config">
@@ -89,9 +101,10 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\game.ts" />
-    <TypeScriptCompile Include="Scripts\objects\fire.ts" />
-    <TypeScriptCompile Include="Scripts\objects\Island.ts" />
-    <TypeScriptCompile Include="Scripts\objects\ship.ts" />
+    <TypeScriptCompile Include="Scripts\objects\gameObjects.ts" />
+    <TypeScriptCompile Include="Scripts\objects\Starfish.ts" />
+    <TypeScriptCompile Include="Scripts\objects\Goldcoins.ts" />
+    <TypeScriptCompile Include="Scripts\objects\Fish.ts" />
     <TypeScriptCompile Include="Scripts\objects\water.ts" />
     <TypeScriptCompile Include="Scripts\typings\createjs-lib\createjs-lib.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\easeljs\easeljs.d.ts" />
