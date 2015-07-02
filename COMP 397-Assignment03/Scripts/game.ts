@@ -4,6 +4,7 @@
 /// <reference path="typings/soundjs/soundjs.d.ts" />
 /// <reference path="typings/preloadjs/preloadjs.d.ts" />
 
+/// <reference path="objects/water.ts" />
 /// <reference path="objects/ship.ts" />
 /// <reference path="objects/fire.ts" />
 /// <reference path="objects/island.ts" />
@@ -16,9 +17,10 @@ var stats: Stats;
 
 var assets: createjs.LoadQueue;
 var manifest = [
-    { id: "ship", src: "assets/images/ship.fw.png" },
-    { id: "island", src: "assets/images/island1.fw.png" },
-    { id: "fire", src: "assets/images/fire.fw.png" }
+    { id: "ship", src: "assets/images/fish.fw.png" },
+    { id: "water", src: "assets/images/water1.fw.png" },
+    { id: "island", src: "assets/images/goldcoins.fw.png" },
+    { id: "fire", src: "assets/images/starfish.png" }
 
   
 ];
@@ -26,8 +28,7 @@ var manifest = [
 
 // Game Variables
 
-
-//Ship Object
+var water: objects.Water;
 var ship: objects.Ship;
 var island: objects.Island;
 var fire:objects.Fire[] = [];
@@ -72,9 +73,11 @@ function setupStats() {
 // Callback function that creates our Main Game Loop - refreshed 60 fps
 function gameLoop() {
     stats.begin(); // Begin measuring
+
+    water.update();
     ship.update();
     island.update();
-   for (var fires = 0; fires < 5; fires++) {
+   for (var fires = 0; fires < 3; fires++) {
         fire[fires].update();
     }
     stage.update();
@@ -82,6 +85,9 @@ function gameLoop() {
     stats.end(); // end measuring
 }
 function main() {
+    //add water to the stage
+    water = new objects.Water(assets.getResult("water"));
+    stage.addChild(water);
     //add island object to stage
     island = new objects.Island(assets.getResult("island"));
     stage.addChild(island);
@@ -91,7 +97,7 @@ function main() {
     stage.addChild(ship);
 
     //add fire object to stage
-    for (var fires = 0; fires < 5; fires++) {
+    for (var fires = 0; fires < 3; fires++) {
         fire[fires] = new objects.Fire(assets.getResult("fire"));
         stage.addChild(fire[fires]);
     }   

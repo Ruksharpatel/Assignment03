@@ -14,7 +14,7 @@
             this.regX = this.width * 0.5;
             this.regY = this.height * 0.5;
 
-            this.x = 100; ////MODIFIED
+            this.x = 500; ////MODIFIED
         }
 
         //PUBLIC METHODS+++++++++++++++++++++++++++++++++++++++++++++++++
