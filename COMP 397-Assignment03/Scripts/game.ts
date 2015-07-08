@@ -12,6 +12,11 @@
 /// <reference path="objects/coins.ts" />
 /// <reference path="objects/starfish.ts" />
 
+/// <reference path="objects/scoreboard.ts" />
+/// <reference path="manager/collision.ts" />
+
+
+
 
 
 // Game Framework Variables
@@ -27,7 +32,7 @@ var manifest = [
     { id: "star", src: "assets/images/starfish.png" },
     { id: "yes", src: "assets/sounds/coin.wav" },
     { id: "no", src: "assets/sounds/hit.wav" },
-    { id: "river", src: "assets/sounds/river.ogg" }
+    { id: "river", src: "assets/sounds/underwater.mp3" }
 
 ];
 
@@ -38,7 +43,10 @@ var fish: objects.Fish;
 var coin: objects.Coins;
 var stars: objects.StarFish[] = [];
 
+var scoreboard: objects.ScoreBoard;
 
+//Game Managers
+var collision: managers.Collision;
 // Preloader Function
 function preload() {
     assets = new createjs.LoadQueue();
@@ -81,43 +89,25 @@ function gameLoop() {
     stats.begin(); // Begin measuring
 
     water.update();
+
     fish.update();
+
     coin.update();
     for (var star = 0; star < 3; star++) {
         stars[star].update();
-        checkcollision(stars[star]);
+        collision.check(stars[star]);
+}
+    
+    collision.check(coin);
 
-    }
+    scoreboard.update();
 
-    checkcollision(coin);
     stage.update();
 
     stats.end(); // end measuring
 }
 
 
-//Check Collision Method+++++++++++++++++++++++++++++++++++++++++++++++
-function checkcollision(gameObject: objects.GameOjects) {
-    var p1: createjs.Point = new createjs.Point();
-    var p2: createjs.Point = new createjs.Point();
-    p1.x = fish.x;
-    p1.y = fish.y;
-
-    p2.x = gameObject.x;
-    p2.y = gameObject.y;
-
-    if (utility.distance(p1, p2) < (fish.height * 0.5) + (gameObject.height * 0.5)) {
-
-        if (gameObject.isColliding == false) {
-            createjs.Sound.play(gameObject.sound);
-        }
-        gameObject.isColliding = true;
-    }
-
-    else {
-        gameObject.isColliding = false;
-    }
-}
 
 // Our Main Game Function
 function main() {
@@ -137,6 +127,9 @@ function main() {
     for (var star = 0; star < 3; star++) {
         stars[star] = new objects.StarFish(assets.getResult("star"));
         stage.addChild(stars[star]);
-
-    }
+   }
+    //add scoreboard
+    scoreboard = new objects.ScoreBoard();
+    //add collision managers
+    collision = new managers.Collision();
 }

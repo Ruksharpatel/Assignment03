@@ -6,7 +6,9 @@
         constructor(imageString: string) {
             super(imageString);
             this.sound = "river";
+
             this.x = 550;
+            createjs.Sound.play(this.sound, {"loop": - 1}); //-1 means forever
          
         }
         //PUBLIC METHODS++++++++++++++++++++++++++++++++++

@@ -14,6 +14,7 @@ var objects;
             _super.call(this, imageString);
             this.sound = "river";
             this.x = 550;
+            createjs.Sound.play(this.sound, { "loop": -1 }); //-1 means forever
         }
         //PUBLIC METHODS++++++++++++++++++++++++++++++++++
         Fish.prototype.update = function () {

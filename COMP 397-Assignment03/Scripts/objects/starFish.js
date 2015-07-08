@@ -13,6 +13,7 @@ var objects;
         function StarFish(imageString) {
             _super.call(this, imageString);
             this.sound = "no";
+            this.name = "star";
             this.reset();
         }
         //PRIVATE METHODS+++++++++++++++++++++++++++++++++

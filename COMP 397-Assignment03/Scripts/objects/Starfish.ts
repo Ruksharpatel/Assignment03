@@ -8,6 +8,7 @@
            
             super(imageString);
             this.sound = "no";
+            this.name = "star";
             this.reset();
         }
         //PRIVATE METHODS+++++++++++++++++++++++++++++++++

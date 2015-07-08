@@ -13,6 +13,7 @@ var objects;
         function Coins(imageString) {
             _super.call(this, imageString);
             this.sound = "yes";
+            this.name = "coin";
             this.dx = 5;
             this.reset();
         }
