@@ -59,11 +59,28 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\images\birds.fw.png" />
     <Content Include="assets\images\blue.fw.png" />
+    <Content Include="assets\images\blue1.fw.png" />
+    <Content Include="assets\images\city.fw.png" />
+    <Content Include="assets\images\city1.fw.png" />
+    <Content Include="assets\images\city2.fw.png" />
+    <Content Include="assets\images\desert.fw.png" />
+    <Content Include="assets\images\enemy.fw.png" />
+    <Content Include="assets\images\final.fw.png" />
+    <Content Include="assets\images\final11.fw.png" />
+    <Content Include="assets\images\finalDesert.fw.png" />
     <Content Include="assets\images\fish.fw.png" />
     <Content Include="assets\images\goldcoins.fw.png" />
+    <Content Include="assets\images\mario1.fw.png" />
+    <Content Include="assets\images\mario1.jpg" />
+    <Content Include="assets\images\playagain.png" />
+    <Content Include="assets\images\road.fw.png" />
     <Content Include="assets\images\roll.fw.png" />
+    <Content Include="assets\images\scroll.fw.png" />
+    <Content Include="assets\images\scroll.png" />
     <Content Include="assets\images\starfish.png" />
+    <Content Include="assets\images\start.png" />
     <Content Include="assets\images\under.fw.png" />
     <Content Include="assets\images\underwater.fw.png" />
     <Content Include="assets\images\water.fw.png" />
@@ -74,9 +91,20 @@
     <Content Include="assets\images\waterbg.fw.png" />
     <Content Include="assets\sounds\burp.wav" />
     <Content Include="assets\sounds\coin.wav" />
+    <Content Include="assets\sounds\Dr_Mario-Menu_XG.mid" />
+    <Content Include="assets\sounds\hit.wav" />
+    <Content Include="assets\sounds\main.mp3" />
+    <Content Include="assets\sounds\mario.mp3" />
+    <Content Include="assets\sounds\ooh.wav" />
+    <Content Include="assets\sounds\oops.wav" />
     <Content Include="assets\sounds\ouch.mp3" />
+    <Content Include="assets\sounds\uff.wav" />
+    <Content Include="assets\sounds\underwater.mp3" />
+    <Content Include="assets\sounds\yoshisisland2.wav" />
+    <Content Include="index.html" />
     <Content Include="packages.config" />
     <Content Include="assets\sounds\river.ogg" />
+    <Content Include="Scripts\game.js.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -88,7 +116,7 @@
     <Content Include="assets\sounds\fire.wav" />
     <Content Include="assets\sounds\yuppie.wav" />
     <Content Include="css\game.css" />
-    <Content Include="index.html" />
+    <Content Include="Scripts\game.js" />
     <Content Include="Scripts\lib\easeljs-0.8.0.min.js" />
     <Content Include="Scripts\lib\preloadjs-0.6.0.min.js" />
     <Content Include="Scripts\lib\soundjs-0.6.0.min.js" />
@@ -101,10 +129,10 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\game.ts" />
+    <TypeScriptCompile Include="Scripts\objects\coins.ts" />
+    <TypeScriptCompile Include="Scripts\objects\fish.ts" />
     <TypeScriptCompile Include="Scripts\objects\gameObjects.ts" />
-    <TypeScriptCompile Include="Scripts\objects\Starfish.ts" />
-    <TypeScriptCompile Include="Scripts\objects\Goldcoins.ts" />
-    <TypeScriptCompile Include="Scripts\objects\Fish.ts" />
+    <TypeScriptCompile Include="Scripts\objects\starFish.ts" />
     <TypeScriptCompile Include="Scripts\objects\water.ts" />
     <TypeScriptCompile Include="Scripts\typings\createjs-lib\createjs-lib.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\easeljs\easeljs.d.ts" />
@@ -112,8 +140,11 @@
     <TypeScriptCompile Include="Scripts\typings\soundjs\soundjs.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\stats\stats.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\tweenjs\tweenjs.d.ts" />
+    <TypeScriptCompile Include="Scripts\utility\utility.ts" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Scripts\manager\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

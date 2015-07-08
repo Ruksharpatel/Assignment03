@@ -1,26 +1,21 @@
 ﻿module objects {
-    //Water Class+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    //Water Class+++++++++++++++++++++++++++++++++++++++
     export class Water extends createjs.Bitmap {
-
-        //PUBLIC PROPERTIES++++++++++++++++++++++++++++++++++++++++++++++
+        //PUBLIC PROPERTIES+++++++++++++++++++++++++++++++++
         width: number;
         height: number;
-        dx: number = 5;
+        dx: number = 5; //moves 5 px per frame
 
-
-        //CONSTRUCTOR++++++++++++++++++++++++++++++++++++++++++++++++++++
+        //CONSTRUCTOR++++++++++++++++++++++++++++++++++
         constructor(imageString: string) {
             super(imageString);
             this.width = this.getBounds().width;
             this.height = this.getBounds().height;
-           
             this.reset();
         }
-
-        //PRIVATE METHODS++++++++++++++++++++++++++++++++++
-
-        //check if water has left screen
+        //PRIVATE METHODS+++++++++++++++++++++++++++++++++
         private checkBounds(): void {
+            //check if water has left the screen
             if (this.x == 0) {
                 this.reset();
             }
@@ -28,14 +23,12 @@
 
         private reset(): void {
             this.y = 0;
-            this.x = -790; // reset water to off screen
-
+            this.x = -375; //reset water off screen
         }
-        //PUBLIC METHODS+++++++++++++++++++++++++++++++++++++++++++++++++
+        //PUBLIC METHODS++++++++++++++++++++++++++++++++++
         public update(): void {
-            this.x += this.dx; //moves water down the stage
+            this.x += this.dx;
             this.checkBounds();
-
         }
     }
-}   
+} 

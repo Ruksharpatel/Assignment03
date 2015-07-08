@@ -1,22 +1,17 @@
 ﻿module objects {
-    //Fish class+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-    export class Fish extends objects.GameObjects {
+    //Fish Class+++++++++++++++++++++++++++++++++++++++
+    export class Fish extends objects.GameOjects {
 
-        //PUBLIC PROPERTIES++++++++++++++++++++++++++++++++++++++++++++++
-        width: number;
-        height: number;
-        
-        //CONSTRUCTOR++++++++++++++++++++++++++++++++++++++++++++++++++++
+    //CONSTRUCTOR++++++++++++++++++++++++++++++++++
         constructor(imageString: string) {
             super(imageString);
             this.sound = "river";
-            this.x = 500; ////MODIFIED
+            this.x = 550;
+         
         }
-
-        //PUBLIC METHODS+++++++++++++++++++++++++++++++++++++++++++++++++
+        //PUBLIC METHODS++++++++++++++++++++++++++++++++++
         public update(): void {
-            //position Fish under mouse
-            this.y= stage.mouseY; //modifeid
+            this.y = stage.mouseY; //position fish under mouse
         }
     }
 } 

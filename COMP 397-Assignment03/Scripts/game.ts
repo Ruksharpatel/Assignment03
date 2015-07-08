@@ -4,11 +4,14 @@
 /// <reference path="typings/soundjs/soundjs.d.ts" />
 /// <reference path="typings/preloadjs/preloadjs.d.ts" />
 
+/// <reference path="utility/utility.ts" />
+
 /// <reference path="objects/gameobjects.ts" />
 /// <reference path="objects/water.ts" />
-/// <reference path="objects/Fish.ts" />
-/// <reference path="objects/Starfish.ts" />
-/// <reference path="objects/Goldcoins.ts" />
+/// <reference path="objects/fish.ts" />
+/// <reference path="objects/coins.ts" />
+/// <reference path="objects/starfish.ts" />
+
 
 
 // Game Framework Variables
@@ -18,25 +21,23 @@ var stats: Stats;
 
 var assets: createjs.LoadQueue;
 var manifest = [
+    { id: "water", src: "assets/images/scroll.fw.png" },
     { id: "fish", src: "assets/images/fish.fw.png" },
-   // { id: "water", src: "assets/images/water1.fw.png" },
-    { id: "water", src: "assets/images/blue.fw.png" },
-    { id: "goldCoins", src: "assets/images/goldcoins.fw.png" },
-    { id: "starFish", src: "assets/images/starfish.png" },
-    { id: "yuppie", src: "assets/sounds/yuppie.wav" },
-    { id: "ouch", src: "assets/sounds/ouch.mp3" },
-    { id: "river", src: "assets/sounds/river.ogg" },
-    { id: "coin", src: "assets/sounds/coin.wav" },
+    { id: "coin", src: "assets/images/goldcoins.fw.png" },
+    { id: "star", src: "assets/images/starfish.png" },
+    { id: "yes", src: "assets/sounds/coin.wav" },
+    { id: "no", src: "assets/sounds/hit.wav" },
+    { id: "river", src: "assets/sounds/river.ogg" }
 
 ];
 
 
 // Game Variables
-
 var water: objects.Water;
 var fish: objects.Fish;
-var goldCoins: objects.GoldCoins;
-var starFish:objects.Starfish[] = [];
+var coin: objects.Coins;
+var stars: objects.StarFish[] = [];
+
 
 // Preloader Function
 function preload() {
@@ -55,7 +56,7 @@ function init() {
     stage.enableMouseOver(20);
     createjs.Ticker.setFPS(60); // framerate 60 fps for the game
     // event listener triggers 60 times every second
-    createjs.Ticker.on("tick", gameLoop);
+    createjs.Ticker.on("tick", gameLoop); 
 
     // calling main game function
     main();
@@ -81,25 +82,22 @@ function gameLoop() {
 
     water.update();
     fish.update();
-    goldCoins.update();
-   for (var fires = 0; fires < 3; fires++) {
-       starFish[fires].update();
-       checkCollision(starFish[fires]);
-      
+    coin.update();
+    for (var star = 0; star < 3; star++) {
+        stars[star].update();
+        checkcollision(stars[star]);
+
     }
-  
-   checkCollision(goldCoins);
+
+    checkcollision(coin);
     stage.update();
 
     stats.end(); // end measuring
 }
 
-//Distance utility Method
-function distance(p1: createjs.Point, p2: createjs.Point): number {
-   return Math.floor(Math.sqrt(Math.pow((p2.x - p1.x), 2) + Math.pow((p2.y - p1.y), 2)));
-}
-//CHECK THE DISTANCE BETWEEN GAME OBJECTS +++++++++++++++++++++++++++++++++++++++
-function checkCollision(gameObject: objects.GameObjects) {
+
+//Check Collision Method+++++++++++++++++++++++++++++++++++++++++++++++
+function checkcollision(gameObject: objects.GameOjects) {
     var p1: createjs.Point = new createjs.Point();
     var p2: createjs.Point = new createjs.Point();
     p1.x = fish.x;
@@ -108,37 +106,37 @@ function checkCollision(gameObject: objects.GameObjects) {
     p2.x = gameObject.x;
     p2.y = gameObject.y;
 
-
-    if (distance(p1, p2) < ((fish.width * 0.5) + (gameObject.width * 0.5))) {
+    if (utility.distance(p1, p2) < (fish.height * 0.5) + (gameObject.height * 0.5)) {
 
         if (gameObject.isColliding == false) {
             createjs.Sound.play(gameObject.sound);
         }
         gameObject.isColliding = true;
-
     }
+
     else {
         gameObject.isColliding = false;
     }
 }
-//Our main game function
+
+// Our Main Game Function
 function main() {
-    //add water object to the stage
+    // add water object to the stage
     water = new objects.Water(assets.getResult("water"));
     stage.addChild(water);
-    //add island object to stage
-    goldCoins = new objects.GoldCoins(assets.getResult("goldCoins"));
-    stage.addChild(goldCoins);
 
-    //add ship object to stage
+    // add coin object to the stage
+    coin = new objects.Coins(assets.getResult("coin"));
+    stage.addChild(coin);
+
+    // add fish object to the stage
     fish = new objects.Fish(assets.getResult("fish"));
     stage.addChild(fish);
 
-    //add fire object to stage
-    for (var fires = 0; fires < 3; fires++) {
-        starFish[fires] = new objects.Starfish(assets.getResult("starFish"));
-        stage.addChild(starFish[fires]);
-    }   
+    // add fish object to the stage
+    for (var star = 0; star < 3; star++) {
+        stars[star] = new objects.StarFish(assets.getResult("star"));
+        stage.addChild(stars[star]);
+
+    }
 }
-
-
