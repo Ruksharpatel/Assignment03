@@ -1,0 +1,28 @@
+{
+
+"images": [
+    "SpriteSheet.png"
+],
+
+"frames": [
+    [2, 2, 94, 95, 0, 0, -2],
+    [98, 2, 241, 91, 0, 0, 0],
+    [341, 2, 91, 86, 0, 0, 0],
+    [434, 2, 65, 65, 0, 0, 0],
+    [434, 69, 50, 50, 0, 0, 0]
+],
+
+"animations": {
+    "starfish": [0],
+    "btnReset": [1],
+    "btnPlay.fw": [2],
+    "fish.fw": [3],
+    "goldcoins.fw": [4]
+},
+
+"texturepacker": [
+        "SmartUpdateHash: $TexturePacker:SmartUpdate:38d5aff65785fbaa521b5122221abd21:e0a4aaa0a526b6ac570d6665447cfdb5:160eb6758fe4007ba8592b420f92bb0b$",
+        "Created with TexturePacker (https://www.codeandweb.com/texturepacker) for EaselJS"
+]
+
+}
