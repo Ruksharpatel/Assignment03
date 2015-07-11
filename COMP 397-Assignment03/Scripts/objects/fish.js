@@ -1,8 +1,9 @@
 /// <reference path="../managers/asset.ts" />
 var objects;
 (function (objects) {
-    // Fish Class
+    // FISH CLASS+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     var fish = (function () {
+        //CONSTRUCTOR+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         function fish(stage, game) {
             this.stage = stage;
             this.game = game;
@@ -16,7 +17,8 @@ var objects;
             this.riverSound = createjs.Sound.play('engine', createjs.Sound.INTERRUPT_NONE, 0, 0, -1, 1, 0);
         }
         fish.prototype.update = function () {
-            this.image.y = this.stage.mouseY;
+            // this.image.x = this.stage.mouseX;
+            this.image.y = this.stage.mouseY; //drifts the fish up and down towards the stage
         };
         fish.prototype.destroy = function () {
             this.riverSound.stop();

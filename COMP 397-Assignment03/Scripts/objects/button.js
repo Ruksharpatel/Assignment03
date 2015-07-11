@@ -8,8 +8,10 @@ var __extends = this.__extends || function (d, b) {
 /// <reference path="../managers/asset.ts" />
 var objects;
 (function (objects) {
+    //CLASS BUTTON+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     var Button = (function (_super) {
         __extends(Button, _super);
+        //CONSTRUCTOR+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         function Button(x, y, buttonIDString) {
             _super.call(this, managers.Assets.atlas, buttonIDString);
             this.regX = this.getBounds().width / 2;
@@ -18,6 +20,7 @@ var objects;
             this.y = y;
             this.setButtonListeners();
         }
+        //Button Methods
         Button.prototype.setButtonListeners = function () {
             this.cursor = 'pointer';
             this.on('rollover', this.onButtonOver);
@@ -27,7 +30,7 @@ var objects;
             this.alpha = 0.8;
         };
         Button.prototype.onButtonOut = function () {
-            this.alpha = 1;
+            this.alpha = 1.0;
         };
         return Button;
     })(createjs.Sprite);

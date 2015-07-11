@@ -1,6 +1,6 @@
 ﻿/// <reference path="../managers/asset.ts" />
 module objects {
-    // Ocean Class
+    // OCEAN CLASS+++++=============++++++++++++++++++++++++++++++++++++++++
     export class Ocean {
         image: createjs.Bitmap;
         stage: createjs.Stage;
@@ -8,6 +8,8 @@ module objects {
         width: number;
         height: number;
         dx: number;
+
+        //CONSTRUCTOR++++++++++++++++++++++++++++++++++++++++++++++++++++
         constructor(stage: createjs.Stage, game: createjs.Container) {
             this.stage = stage;
             this.game = game;

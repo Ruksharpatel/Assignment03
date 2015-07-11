@@ -1,8 +1,9 @@
 /// <reference path="../managers/asset.ts" />
 var objects;
 (function (objects) {
-    // Coin Class
+    // COIN CLASS++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     var coin = (function () {
+        //CONSTRUCTOR+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         function coin(stage, game) {
             this.stage = stage;
             this.game = game;

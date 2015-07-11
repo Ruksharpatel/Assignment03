@@ -1,8 +1,9 @@
 /// <reference path="../managers/asset.ts" />
 var objects;
 (function (objects) {
-    // Cloud class
+    // STAR CLASS++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     var star = (function () {
+        //CONSTRUCTOR++++++++++++++++++++++++++++++++++++++++++++++++++
         function star(stage, game) {
             this.stage = stage;
             this.game = game;

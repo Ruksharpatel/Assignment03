@@ -1,8 +1,9 @@
 /// <reference path="../managers/asset.ts" />
 var objects;
 (function (objects) {
-    // Ocean Class
+    // OCEAN CLASS+++++=============++++++++++++++++++++++++++++++++++++++++
     var Ocean = (function () {
+        //CONSTRUCTOR++++++++++++++++++++++++++++++++++++++++++++++++++++
         function Ocean(stage, game) {
             this.stage = stage;
             this.game = game;

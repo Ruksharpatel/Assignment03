@@ -30,3 +30,4 @@
 /// <reference path="states/gameover.js" />
 /// <reference path="states/menu.js" />
 /// <reference path="states/play.js" />
+/// <reference path="lib/stats.js" />

@@ -1,13 +1,14 @@
 var objects;
 (function (objects) {
-    // Scoreboard Class
+    // SCOREBOARD CLASS++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     var Scoreboard = (function () {
+        //CONSTRUCTOR+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         function Scoreboard(stage, game) {
             this.livesText = "";
             this.scoreText = "";
             this.stage = stage;
             this.game = game;
-            this.lives = constants.PLANE_LIVES;
+            this.lives = constants.FISH_LIVES;
             this.score = 0;
             this.livesLabel = new createjs.Text(this.livesText, constants.LABEL_FONT, constants.LABEL_COLOUR);
             this.scoreLabel = new createjs.Text(this.scoreText, constants.LABEL_FONT, constants.LABEL_COLOUR);

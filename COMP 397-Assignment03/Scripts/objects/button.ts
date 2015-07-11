@@ -1,7 +1,10 @@
 ﻿/// <reference path="../constants.ts" />
 /// <reference path="../managers/asset.ts" />
 module objects {
+    //CLASS BUTTON+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     export class Button extends createjs.Sprite {
+
+        //CONSTRUCTOR+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         constructor(x:number, y:number, buttonIDString: string) {
             super(managers.Assets.atlas, buttonIDString);
             this.regX = this.getBounds().width / 2;
@@ -10,7 +13,7 @@ module objects {
             this.y = y;
             this.setButtonListeners();
         }
-
+        //Button Methods
         setButtonListeners() {
             this.cursor = 'pointer';
             this.on('rollover', this.onButtonOver);
@@ -22,7 +25,7 @@ module objects {
         }
 
         onButtonOut() {
-            this.alpha = 1;
+            this.alpha = 1.0;
         }
     }
 } 

@@ -1,6 +1,6 @@
 ﻿/// <reference path="../managers/asset.ts" />
 module objects {
-    // Fish Class
+    // FISH CLASS+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     export class fish {
         image: createjs.Sprite;
         stage: createjs.Stage;
@@ -8,6 +8,8 @@ module objects {
         riverSound: createjs.SoundInstance;
         width: number;
         height: number;
+
+        //CONSTRUCTOR+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         constructor(stage: createjs.Stage, game: createjs.Container) {
             this.stage = stage;
             this.game = game;
@@ -23,7 +25,8 @@ module objects {
 
 
         update() {
-            this.image.y = this.stage.mouseY;
+           // this.image.x = this.stage.mouseX;
+            this.image.y = this.stage.mouseY; //drifts the fish up and down towards the stage
         }
         destroy() {
             this.riverSound.stop();

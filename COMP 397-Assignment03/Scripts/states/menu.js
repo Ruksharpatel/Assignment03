@@ -33,7 +33,7 @@ var states;
         // Show Cursor
         stage.cursor = "default";
         // Display Game Over
-        gameNameLabel = new objects.Label(stage.canvas.width / 2, 40, "Water Coins");
+        gameNameLabel = new objects.Label(stage.canvas.width / 2, 40, "WATER COINS");
         game.addChild(gameNameLabel);
         //Display Instruction Label
         gameNameLabel1 = new objects.Label(285, 150, "Try Collecting Coins as you go,but save\n yourself from the stars coming\n through your Way!! ");

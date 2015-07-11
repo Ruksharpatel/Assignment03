@@ -6,7 +6,7 @@
 
     // Game Constants
     export var STAR_NUM: number = 3;
-    export var LABEL_FONT = "30px Arial, Sans-Seriff";
-    export var LABEL_COLOUR = "Gray";
-    export var PLANE_LIVES = 5;
+    export var LABEL_FONT = "32px Chaparral Pro Light";
+    export var LABEL_COLOUR = "Maroon";
+    export var FISH_LIVES = 5;
 }

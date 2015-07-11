@@ -1,6 +1,6 @@
 ﻿/// <reference path="../managers/asset.ts" />
 module objects {
-    // Coin Class
+    // COIN CLASS++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     export class coin {
         image: createjs.Sprite;
         stage: createjs.Stage;
@@ -8,6 +8,8 @@ module objects {
         height: number;
         width: number;
         dx: number;
+
+        //CONSTRUCTOR+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         constructor(stage: createjs.Stage, game: createjs.Container) {
             this.stage = stage;
             this.game = game;

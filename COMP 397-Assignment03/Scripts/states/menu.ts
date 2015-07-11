@@ -36,7 +36,7 @@ module states {
         stage.cursor = "default";
 
         // Display Game Over
-        gameNameLabel = new objects.Label(stage.canvas.width / 2, 40, "Water Coins");
+        gameNameLabel = new objects.Label(stage.canvas.width / 2, 40, "WATER COINS");
         game.addChild(gameNameLabel);
 
         //Display Instruction Label

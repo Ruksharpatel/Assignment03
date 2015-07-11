@@ -1,6 +1,6 @@
 ﻿/// <reference path="../managers/asset.ts" />
 module objects {
-    // Cloud class
+    // STAR CLASS++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     export class star {
         image: createjs.Sprite;
         stage: createjs.Stage;
@@ -9,6 +9,8 @@ module objects {
         height: number;
         dy: number;
         dx: number;
+
+        //CONSTRUCTOR++++++++++++++++++++++++++++++++++++++++++++++++++
         constructor(stage: createjs.Stage, game: createjs.Container) {
             this.stage = stage;
             this.game = game;

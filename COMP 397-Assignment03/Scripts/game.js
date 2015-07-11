@@ -1,3 +1,7 @@
+/// <reference path="lib/easeljs.d.ts" />
+/// <reference path="lib/tweenjs.d.ts" />
+/// <reference path="lib/soundjs.d.ts" />
+/// <reference path="lib/preloadjs.d.ts" />
 /// <reference path="constants.ts" />
 /// <reference path="managers/asset.ts" />
 /// <reference path="objects/star.ts" />
@@ -11,8 +15,10 @@
 /// <reference path="states/play.ts" />
 /// <reference path="states/menu.ts" />
 /// <reference path="states/gameover.ts" />
+//GAME FRAMEWORK VARIABLES+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 var stage;
 var game;
+var stats = new Stats();
 var ocean;
 var fish;
 var coin;
@@ -23,6 +29,7 @@ var tryAgain;
 var playButton;
 var currentState;
 var currentStateFunction;
+//GAME FUNCTIONS+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // Preload function - Loads Assets and initializes game;
 function preload() {
     managers.Assets.init();
@@ -34,13 +41,25 @@ function init() {
     stage.enableMouseOver(30);
     createjs.Ticker.setFPS(60);
     createjs.Ticker.addEventListener("tick", gameLoop);
+    setupStats();
     currentState = constants.MENU_STATE;
     changeState(currentState);
 }
+//Stats function
+function setupStats() {
+    stats.setMode(0);
+    // align top-left
+    stats.domElement.style.position = 'absolute';
+    stats.domElement.style.left = '650px';
+    stats.domElement.style.top = '8px';
+    document.body.appendChild(stats.domElement);
+}
 // Game Loop
 function gameLoop(event) {
+    stats.begin(); //begin Measuring
     currentStateFunction();
     stage.update();
+    stats.end(); // end measuring
 }
 function changeState(state) {
     // Launch Various "screens"
